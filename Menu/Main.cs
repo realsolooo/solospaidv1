@@ -139,54 +139,58 @@ namespace StupidTemplate.Menu
                 canvas.renderMode = RenderMode.WorldSpace;
                 canvasScaler.dynamicPixelsPerUnit = 1000f;
 
-            // Title and FPS
-                Text text = new GameObject
-                {
-                    transform =
-                    {
-                        parent = canvasObject.transform
-                    }
-                }.AddComponent<Text>();
-                text.font = currentFont;
-                text.text = PluginInfo.Name + " <color=grey>[</color><color=white>" + (pageNumber + 1).ToString() + "</color><color=grey>]</color>";
-                text.fontSize = 1;
-                text.color = textColors[0];
-                text.supportRichText = true;
-                text.fontStyle = FontStyle.Italic;
-                text.alignment = TextAnchor.MiddleCenter;
-                text.resizeTextForBestFit = true;
-                text.resizeTextMinSize = 0;
-                RectTransform component = text.GetComponent<RectTransform>();
-                component.localPosition = Vector3.zero;
-                component.sizeDelta = new Vector2(0.28f, 0.05f);
-                component.position = new Vector3(0.06f, 0f, 0.165f);
-                component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+              // Title and FPS
+Text text = new GameObject
+{
+    transform =
+    {
+        parent = canvasObject.transform
+    }
+}.AddComponent<Text>();
 
-                if (fpsCounter)
-                {
-                    fpsObject = new GameObject
-                    {
-                        transform =
-                    {
-                        parent = canvasObject.transform
-                    }
-                    }.AddComponent<Text>();
-                    fpsObject.font = currentFont;
-                    fpsObject.text = "FPS: " + Mathf.Ceil(1f / Time.unscaledDeltaTime).ToString();
-                    fpsObject.color = textColors[0];
-                    fpsObject.fontSize = 1;
-                    fpsObject.supportRichText = true;
-                    fpsObject.fontStyle = FontStyle.Italic;
-                    fpsObject.alignment = TextAnchor.MiddleCenter;
-                    fpsObject.horizontalOverflow = UnityEngine.HorizontalWrapMode.Overflow;
-                    fpsObject.resizeTextForBestFit = true;
-                    fpsObject.resizeTextMinSize = 0;
-                    RectTransform component2 = fpsObject.GetComponent<RectTransform>();
-                    component2.localPosition = Vector3.zero;
-                    component2.sizeDelta = new Vector2(0.28f, 0.02f);
-                    component2.position = new Vector3(0.06f, 0f, 0.135f);
-                    component2.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
-                }
+text.font = currentFont;
+text.text = "SolosPaidV1 <color=grey>[</color><color=white>" + (pageNumber + 1).ToString() + "</color><color=grey>]</color>";
+text.fontSize = 1;
+text.color = textColors[0];
+text.supportRichText = true;
+text.fontStyle = FontStyle.Italic;
+text.alignment = TextAnchor.MiddleCenter;
+text.resizeTextForBestFit = true;
+text.resizeTextMinSize = 0;
+
+RectTransform component = text.GetComponent<RectTransform>();
+component.localPosition = Vector3.zero;
+component.sizeDelta = new Vector2(0.28f, 0.05f);
+component.position = new Vector3(0.06f, 0f, 0.165f);
+component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+
+if (fpsCounter)
+{
+    fpsObject = new GameObject
+    {
+        transform =
+        {
+            parent = canvasObject.transform
+        }
+    }.AddComponent<Text>();
+
+    fpsObject.font = currentFont;
+    fpsObject.text = "FPS: " + Mathf.Ceil(1f / Time.unscaledDeltaTime).ToString();
+    fpsObject.color = textColors[0];
+    fpsObject.fontSize = 1;
+    fpsObject.supportRichText = true;
+    fpsObject.fontStyle = FontStyle.Italic;
+    fpsObject.alignment = TextAnchor.MiddleCenter;
+    fpsObject.horizontalOverflow = HorizontalWrapMode.Overflow;
+    fpsObject.resizeTextForBestFit = true;
+    fpsObject.resizeTextMinSize = 0;
+
+    RectTransform component2 = fpsObject.GetComponent<RectTransform>();
+    component2.localPosition = Vector3.zero;
+    component2.sizeDelta = new Vector2(0.28f, 0.02f);
+    component2.position = new Vector3(0.06f, 0f, 0.135f);
+    component2.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+}
 
             // Buttons
                 // Disconnect
